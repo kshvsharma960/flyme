@@ -60,6 +60,25 @@ var myGameArea = {
 	}
         });
 
+////////////////////////////////////////////////////
+//for touch
+
+ window.addEventListener('touchstart', function (e) {
+            //e.preventDefault();
+	
+		accelerate(0.05);
+	
+        });
+
+
+ window.addEventListener('touchend', function (e) {
+         
+		accelerate(-0.2);
+	
+        });
+
+
+
 
 function component(width, height, color, x, y, type) {
     this.type = type;
