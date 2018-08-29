@@ -20,6 +20,9 @@ var myGamePiece;
 var myObstacles = [];
 var myScore;
 
+var FrameWidth=screen.width*0.8;
+var FrameHeight=screen.height*0.8;
+
 function startGame() {
     myGamePiece = new component(30, 30, "Jet.png", 10, 120,"image");
     myGamePiece.gravity = 0.05;
@@ -31,8 +34,8 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 1336;
-        this.canvas.height = 720;
+        this.canvas.width = FrameWidth;
+        this.canvas.height = FrameHeight;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
