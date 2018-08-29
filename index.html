@@ -21,12 +21,12 @@ var myObstacles = [];
 var myScore;
 
 var FrameWidth=screen.width*0.9;
-var FrameHeight=screen.height*0.9;
+var FrameHeight=screen.height*0.8;
 
 function startGame() {
     myGamePiece = new component(30, 30, "Jet.png", 10, 120,"image");
     myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 400, 40, "text");
+    //myScore = new component("30px", "score", "black", 400, 40, "text");
     myMessage = new component("30px", "Greetings from Pilot Keshav....", "black", 0, 40, "text");
     myGameArea.start();
 }
@@ -142,6 +142,8 @@ else {
         if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
             crash = false;
         }
+var customScore=parseInt(myGameArea.frameNo/10);
+myMessage.text="Points: " + customScore+" GameOver..Refresh page to play again... ";
         return crash;
     }
 }
@@ -150,6 +152,7 @@ function updateGameArea() {
     var x, height, gap, minHeight, maxHeight, minGap, maxGap;
     for (i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
+		myMessage.update();
             return;
         } 
     }
@@ -171,15 +174,20 @@ function updateGameArea() {
         myObstacles[i].update();
     }
 var customScore=parseInt(myGameArea.frameNo/10);
-    myScore.text="Points: " + customScore;
+    //myScore.text="Points: " + customScore;
 
-    myMessage.text="";
+    myMessage.text="Points: " + customScore;
 
 if(customScore<50){
     myMessage.text="Ready.Steady.Go...";
 }
+else if(customScore<100){
+    myMessage.text="Points: " + customScore;
+}
 
 if(customScore>100){
+
+    
 
 if(customScore>200){
     myMessage.text="Superb Flying....";
@@ -190,7 +198,7 @@ else{
 
 }
     myMessage.update();
-    myScore.update();
+    //myScore.update();
     myGamePiece.newPos();
     myGamePiece.update();
 }
