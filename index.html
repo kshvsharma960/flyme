@@ -2,7 +2,7 @@
 <html>
 <head>
 
-<title>Sparta PlayTime</title>
+<title>Fly with Keshav</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
 canvas {
@@ -27,7 +27,7 @@ function startGame() {
     myGamePiece = new component(30, 30, "Jet.png", 10, 120,"image");
     myGamePiece.gravity = 0.05;
     myScore = new component("30px", "Consolas", "black", 400, 40, "text");
-    myMessage = new component("30px", "Greetings from Sparta-Team", "black", 0, 40, "text");
+    myMessage = new component("30px", "Greetings from Pilot Keshav....", "black", 0, 40, "text");
     myGameArea.start();
 }
 
@@ -170,8 +170,18 @@ function updateGameArea() {
         myObstacles[i].x += -1;
         myObstacles[i].update();
     }
-    myScore.text="Points: " +parseInt(myGameArea.frameNo/10);
-    myMessage.text="Greetings from Sparta-Team";
+var customScore=parseInt(myGameArea.frameNo/10);
+    myScore.text="Points: " + customScore
+if(customScore>100){
+
+if(customScore>200){
+    myMessage.text="Superb Flying....";
+}
+else{
+    myMessage.text="keep going...";
+}
+
+}
     myMessage.update();
     myScore.update();
     myGamePiece.newPos();
