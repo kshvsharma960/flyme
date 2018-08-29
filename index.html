@@ -20,8 +20,8 @@ var myGamePiece;
 var myObstacles = [];
 var myScore;
 
-var FrameWidth=screen.width*0.8;
-var FrameHeight=screen.height*0.8;
+var FrameWidth=screen.width*0.97;
+var FrameHeight=screen.height*0.97;
 
 function startGame() {
     myGamePiece = new component(30, 30, "Jet.png", 10, 120,"image");
@@ -156,7 +156,7 @@ function updateGameArea() {
     myGameArea.clear();
     myGameArea.frameNo += 1;
     if (myGameArea.frameNo == 1 || everyinterval(150)) {
-        x = FrameWidth//;myGameArea.canvas.width;
+        x = FrameHeight//;myGameArea.canvas.width;
         minHeight = 20;
         maxHeight = 200;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
