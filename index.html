@@ -156,7 +156,7 @@ function updateGameArea() {
     myGameArea.clear();
     myGameArea.frameNo += 1;
     if (myGameArea.frameNo == 1 || everyinterval(150)) {
-        x = myGameArea.canvas.width;
+        x = FrameWidth//;myGameArea.canvas.width;
         minHeight = 20;
         maxHeight = 200;
         height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
@@ -171,7 +171,14 @@ function updateGameArea() {
         myObstacles[i].update();
     }
 var customScore=parseInt(myGameArea.frameNo/10);
-    myScore.text="Points: " + customScore
+    myScore.text="Points: " + customScore;
+
+    myMessage.text="";
+
+if(customScore<50){
+    myMessage.text="Ready.Steady.Go...";
+}
+
 if(customScore>100){
 
 if(customScore>200){
