@@ -65,15 +65,16 @@ var myGameArea = {
 
  window.addEventListener('touchstart', function (e) {
             //e.preventDefault();
-	
-		accelerate(0.05);
+		accelerate(-0.2);	
+		
 	
         });
 
 
  window.addEventListener('touchend', function (e) {
          
-		accelerate(-0.2);
+
+accelerate(0.05);
 	
         });
 
